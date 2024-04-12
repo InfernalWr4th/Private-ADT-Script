@@ -1,0 +1,443 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Dusty Trip Script", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Weaponry",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Bring guns (Don't mistake this for spawning)" 
+})
+
+Tab:AddButton({
+	Name = "Bring M1911 (Might not work for other servers)",
+	Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local objectToMove = workspace.Pistol
+
+objectToMove:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 5, 0))
+  	end    
+})
+
+Tab:AddButton({
+Name = "Bring AK47 (Only works if the item is present and not welded)",
+	Callback = function()
+local player = game.Players.LocalPlayer
+local character = player.Character
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local objectToMove = workspace.AK47
+
+objectToMove:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 5, 0))
+  	end    
+}) 
+
+local Section = Tab:AddSection({
+	Name = "Gun Ammunition (Drop the gun and pick it up to refresh gun ammo)" 
+})
+
+Tab:AddButton({
+	Name = "Auto Refill Ammo (Pistol) {OP!!}",
+	Callback = function()
+	getgenv().FastCar = true
+while getgenv().FastCar == true do
+    task.wait()
+local args = {
+    [1] = "GunFramework_AdjustAmount",
+    [2] = workspace.Pistol,
+    [3] =  math.huge,
+    [4] = math.huge,
+    [5] = math.huge
+}
+
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteEvent:FireServer(unpack(args))
+end
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Auto Refill Ammo (AK47) {OP!!}",
+	Callback = function()
+	getgenv().FastCar = true
+while getgenv().FastCar == true do
+    task.wait()
+local args = {
+    [1] = "GunFramework_AdjustAmount",
+    [2] = workspace.AK47,
+    [3] =  math.huge,
+    [4] = math.huge,
+    [5] = math.huge
+}
+
+game:GetService("ReplicatedStorage").NetworkEvents.RemoteEvent:FireServer(unpack(args))
+end
+  	end    
+})
+
+local Section = Tab:AddSection({
+	Name = "Bring Melee (Don't mistake this for spawning)" 
+})
+
+Tab:AddButton({
+	Name = "Bring Fly Swatter (Must be present in game)",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Bring Wooden Stake (Must be present in game)",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Bring Fire Axe (Must be present in game)",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Bring Items",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Sedan",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Bring Sedan",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+local character = player.Character
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local objectToMove = workspace.Sedan
+
+objectToMove:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 5, 0))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "TP to sedan",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Van",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Bring Van",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+local character = player.Character
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local objectToMove = workspace.Van
+
+objectToMove:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 5, 0))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "TP to van",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Truck",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Complete Car (Except for wheels) {Unique}",
+	Callback = function()
+	local args = {
+    [1] = workspace.RR3:FindFirstChild("Meshes/chevy70_Cube.003 (1)"),
+    [2] = workspace.Truck.Misc.details.doors.RR3.Model:FindFirstChild("Meshes/chevy70_Cube.003 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.RR3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.FR3:FindFirstChild("Meshes/chevy70"),
+    [2] = workspace.Truck.Misc.details.doors.FR3.Model:FindFirstChild("Meshes/chevy70"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.FR3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.hood:FindFirstChild("Meshes/chevy70_Cube.004 (1)"),
+    [2] = workspace.Truck.Misc.details.openable.hood.Model:FindFirstChild("Meshes/chevy70_Cube.004 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.openable.hood.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.FL3:FindFirstChild("Meshes/chevy70_Cube.021 (1)"),
+    [2] = workspace.Truck.Misc.details.doors.FL3.Model:FindFirstChild("Meshes/chevy70_Cube.021 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.FL3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.RL3:FindFirstChild("Meshes/chevy70_Cube.026 (1)"),
+    [2] = workspace.Truck.Misc.details.doors.RL3.Model:FindFirstChild("Meshes/chevy70_Cube.026 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.RL3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.back:FindFirstChild("Meshes/chevy70_Cube.009 (1)"),
+    [2] = workspace.Truck.Misc.details.openable.back.Model:FindFirstChild("Meshes/chevy70_Cube.009 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.openable.back.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Complete Car (Except for wheels) {Unique}",
+	Callback = function()
+		local args = {
+    [1] = workspace.RR3:FindFirstChild("Meshes/chevy70_Cube.003 (1)"),
+    [2] = workspace.Truck.Misc.details.doors.RR3.Model:FindFirstChild("Meshes/chevy70_Cube.003 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.RR3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.FR3:FindFirstChild("Meshes/chevy70"),
+    [2] = workspace.Truck.Misc.details.doors.FR3.Model:FindFirstChild("Meshes/chevy70"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.FR3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.hood:FindFirstChild("Meshes/chevy70_Cube.004 (1)"),
+    [2] = workspace.Truck.Misc.details.openable.hood.Model:FindFirstChild("Meshes/chevy70_Cube.004 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.openable.hood.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.FL3:FindFirstChild("Meshes/chevy70_Cube.021 (1)"),
+    [2] = workspace.Truck.Misc.details.doors.FL3.Model:FindFirstChild("Meshes/chevy70_Cube.021 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.FL3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.RL3:FindFirstChild("Meshes/chevy70_Cube.026 (1)"),
+    [2] = workspace.Truck.Misc.details.doors.RL3.Model:FindFirstChild("Meshes/chevy70_Cube.026 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.doors.RL3.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+
+local args = {
+    [1] = workspace.back:FindFirstChild("Meshes/chevy70_Cube.009 (1)"),
+    [2] = workspace.Truck.Misc.details.openable.back.Model:FindFirstChild("Meshes/chevy70_Cube.009 (1)"),
+    [3] = true,
+    [4] = workspace.Truck.Misc.details.openable.back.Part.dragweld
+}
+
+game:GetService("ReplicatedStorage").place:InvokeServer(unpack(args))
+	end    
+})
+
+Tab:AddButton({
+	Name = "Bring Truck",
+	Callback = function()
+      		local player = game.Players.LocalPlayer
+local character = player.Character
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local objectToMove = workspace.Truck
+
+objectToMove:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 5, 0))
+  	end    
+})
+
+Tab:AddButton({
+	Name = "TP to truck",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Trolling",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Sedan Trolls" 
+})
+
+Tab:AddButton({
+	Name = "Disassemble Sedan",
+	Callback = function()
+      		print("button pressed")
+  	end    
+}) 
+
+Tab:AddButton({
+	Name = "Drain Fuel/Oil (Press 5x) ",
+	Callback = function()
+	local args = {
+    [1] = workspace.Sedan.values.ison,
+    [2] = true
+}
+
+workspace.Sedan.connection:FireServer(unpack(args))
+	for i = 0, 100 do
+    local args = {
+    [1] = workspace.Sedan.values.rpm,
+    [2] = math.huge 
+}
+
+workspace.Sedan.connection:FireServer(unpack(args))
+end
+  	end    
+}) 
+
+local Section = Tab:AddSection({
+	Name = "Van trolls" 
+})
+
+Tab:AddButton({
+	Name = "Disassemble Van",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Drain Fuel/Oil (Press 5x)",
+	Callback = function()
+	local args = {
+    [1] = workspace.Van.values.ison,
+    [2] = true
+}
+
+workspace.Van.connection:FireServer(unpack(args)) 
+	for i = 0, 100 do
+	local args = {
+    [1] = workspace.Van.values.rpm,
+    [2] = math.huge 
+}
+
+workspace.Van.connection:FireServer(unpack(args))
+end
+  	end    
+}) 
+
+local Section = Tab:AddSection({
+	Name = "Truck Trolls" 
+})
+
+Tab:AddButton({
+	Name = "Disassemble Truck",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Drain Fuel/Oil (Press 5x)",
+	Callback = function()
+	local args = {
+    [1] = workspace.Truck.values.ison,
+    [2] = true
+}
+
+workspace.Truck.connection:FireServer(unpack(args))
+	for i = 0, 100 do
+    local args = {
+    [1] = workspace.Truck.values.rpm,
+    [2] = math.huge 
+}
+
+workspace.Truck.connection:FireServer(unpack(args)) 
+end
+  	end    
+}) 
